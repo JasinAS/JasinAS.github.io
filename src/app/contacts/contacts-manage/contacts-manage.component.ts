@@ -141,7 +141,7 @@ export class ContactsManageComponent implements OnInit, OnDestroy {
           : (this.contactArray?.length || 0) + 1,
       };
       const newContact = this.contactArray?.find((c) => c.id === contact.id);
-      const index = this.contactArray.indexOf(newContact);
+      const index = this.contactArray?.indexOf(newContact);
       if (newContact) {
         this.contactArray[index] = contact;
       } else {
@@ -192,7 +192,7 @@ export class ContactsManageComponent implements OnInit, OnDestroy {
     const selecedContact = this.contactArray?.find(
       (c) => c.id === this.contactUpdateData.id
     );
-    const index = this.contactArray.indexOf(selecedContact);
+    const index = this.contactArray?.indexOf(selecedContact);
     this.contactArray.splice(index, 1);
     localStorage.setItem('contactArray', JSON.stringify(this.contactArray));
     this.share.changeContact(this.contactUpdateData);

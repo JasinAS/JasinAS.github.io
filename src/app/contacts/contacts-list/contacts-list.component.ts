@@ -33,7 +33,7 @@ export class ContactsListComponent implements OnInit, OnDestroy {
     this.subscription = this.share.currentContact.subscribe((contact) => {
       this.contacts = JSON.parse(localStorage.getItem('contactArray'));
       const selecedContact = this.contacts?.find((c) => c.id === contact?.id);
-      const index = this.contacts.indexOf(selecedContact);
+      const index = this.contacts?.indexOf(selecedContact);
       if (index !== -1) {
         this.contacts[index].selected = true;
       }
