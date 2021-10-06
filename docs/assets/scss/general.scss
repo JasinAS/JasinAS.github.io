@@ -1,0 +1,27 @@
+/* General Variables */
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
+
+$blue: #7797c8;
+$red: #e24818;
+$gray: #f8f8f8;
+$darkgray: #e5e5e5;
+$white: #fff;
+$black: #000;
+
+$grayGradient: linear-gradient(90.27deg, #e8e8e8 12.78%, #f8f8f8 90.73%);
+
+$transition: 0.3s all;
+
+$font: "Nunito Sans", sans-serif;
+body {
+  background: $darkgray;
+  font-family: $font;
+}
+::-webkit-scrollbar-thumb {
+  background-color: $darkgray;
+  border: none;
+}
+::-webkit-scrollbar {
+  width: 2px;
+  background-color: $gray;
+}
