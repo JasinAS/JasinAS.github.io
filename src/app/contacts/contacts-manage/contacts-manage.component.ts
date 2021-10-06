@@ -149,15 +149,6 @@ export class ContactsManageComponent implements OnInit, OnDestroy {
       }
       localStorage.setItem('contactArray', JSON.stringify(this.contactArray));
       this.share.changeContact(this.contactUpdateData);
-      this.contactUpdateData = {
-        firstName: '',
-        lastName: '',
-        emails: [],
-        id: 0,
-      };
-      this.firstNameInput.value = '';
-      this.lastNameInput.value = '';
-      this.visibleContacts = false;
     }
   }
 

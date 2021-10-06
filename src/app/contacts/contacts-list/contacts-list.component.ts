@@ -32,10 +32,12 @@ export class ContactsListComponent implements OnInit, OnDestroy {
     /* Set new data and change screen after user selects one contact or tries to add a new one */
     this.subscription = this.share.currentContact.subscribe((contact) => {
       this.contacts = JSON.parse(localStorage.getItem('contactArray'));
-      const selecedContact = this.contacts?.find((c) => c.id === contact?.id);
-      const index = this.contacts?.indexOf(selecedContact);
-      if (index !== -1) {
-        this.contacts[index].selected = true;
+      if (this.contacts && contact) {
+        const selecedContact = this.contacts?.find((c) => c.id === contact?.id);
+        const index = this.contacts?.indexOf(selecedContact);
+        if (index !== -1) {
+          this.contacts[index].selected = true;
+        }
       }
     });
   }
@@ -61,8 +63,10 @@ export class ContactsListComponent implements OnInit, OnDestroy {
 
   /* Set rest to falsy */
   resetSelection() {
-    for (const element of this.contacts) {
-      element.selected = false;
+    if (this.contacts) {
+      for (const element of this.contacts) {
+        element.selected = false;
+      }
     }
   }
 
