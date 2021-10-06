@@ -1,0 +1,27 @@
+<div class="input-container">
+  <input
+    [ngStyle]="{ width: input.icon ? '90%' : '100%' }"
+    [(ngModel)]="input.value"
+    placeholder="{{ input.placeholder }}"
+    type="{{ input.type }}"
+    name="{{ input.name }}"
+    (keyup)="emitValue($event.target.value, inputField.valid)"
+    [required]="input.required"
+    #inputField="ngModel"
+    [email]="input.type === 'email'"
+  />
+  <svg-icon *ngIf="input.icon" [src]="input.iconSrc"> </svg-icon>
+</div>
+<div
+  class="error"
+  *ngIf="
+    input.type !== 'email'
+      ? inputField.invalid && inputField.touched
+      : inputField.invalid
+  "
+>
+  <span>
+    {{ input.placeholder }}
+  </span>
+  is <span>{{ input.type !== "email" ? "required." : "invalid." }}</span>
+</div>

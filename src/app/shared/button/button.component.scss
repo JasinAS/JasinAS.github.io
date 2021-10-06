@@ -1,0 +1,39 @@
+@import "../../../assets/scss/general.scss";
+
+.button {
+  width: 133px;
+  height: 36px;
+  font-size: 18px;
+  border-radius: 4px;
+  font-family: $font;
+  transition: $transition;
+  cursor: pointer;
+  &_email,
+  &_save {
+    background: $blue;
+    color: $white;
+    border: 1px solid $blue;
+    &:hover {
+      background: $white;
+      color: $blue;
+    }
+  }
+  &_cancel {
+    background: $white;
+    color: $blue;
+    border: 1px solid $blue;
+    &:hover {
+      background: $blue;
+      color: $white;
+    }
+  }
+  &_delete {
+    background: $white;
+    color: $red;
+    border: 1px solid $red;
+    &:hover {
+      background: $red;
+      color: $white;
+    }
+  }
+}

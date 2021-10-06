@@ -1,0 +1,33 @@
+<div class="list">
+  <div class="list_header">
+    <p class="list_header_title">
+      {{ title }}
+    </p>
+    <div (click)="addNewContact()" class="list_header_btn">+</div>
+  </div>
+  <div class="list_search">
+    <app-input [input]="searchModel"> </app-input>
+  </div>
+  <div *ngIf="contacts.length; else noContacts" class="list_data">
+    <div
+      class="list_data_box"
+      [ngClass]="{ list_data_box_active: contact.selected }"
+      (click)="selectContact(contact)"
+      *ngFor="
+        let contact of contacts | search: searchModel.value;
+        let i = index
+      "
+    >
+      <span>{{ contact.firstName }}</span>
+      <!-- Set dots if the last name is too long -->
+      <span>{{
+        (contact.firstName + contact.lastName).length > 20
+          ? (contact.lastName | slice: 0:12) + "..."
+          : contact.lastName
+      }}</span>
+    </div>
+  </div>
+  <ng-template #noContacts>
+    <span>Currently there are no contacts, try adding some.</span>
+  </ng-template>
+</div>

@@ -1,0 +1,78 @@
+@import "../../../assets/scss/general.scss";
+
+.no-selection {
+  width: 250px;
+  margin: auto;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.manage {
+  padding: 96px 46px 20px;
+  height: 653px;
+  position: relative;
+  &_row {
+    display: grid;
+    grid-template-columns: 260px 260px;
+    grid-template-rows: 38px;
+    grid-gap: 20px;
+    width: 540px;
+  }
+  &_body {
+    margin-top: 50px;
+    &_row {
+      display: flex;
+      &_email {
+        margin-right: 16px;
+      }
+    }
+    &_list {
+      display: flex;
+      width: auto;
+      margin-bottom: 10px;
+      align-items: center;
+      &_delete {
+        width: 15px;
+        height: 15px;
+        border: 1px solid $red;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        font-size: 23px;
+        color: $red;
+        text-align: center;
+        cursor: pointer;
+        line-height: 12;
+        display: none;
+      }
+      &_email {
+        margin-right: 10px;
+      }
+      &:hover {
+        .manage_body_list_delete {
+          display: flex;
+        }
+      }
+    }
+  }
+  &_footer {
+    display: flex;
+    position: absolute;
+    bottom: 30px;
+    &_button {
+      &:nth-of-type(1) {
+        margin-right: 27px;
+      }
+      &:nth-of-type(2) {
+        margin-right: 287px;
+      }
+      &_disabled {
+        opacity: 0.6;
+        user-select: none;
+        pointer-events: none;
+      }
+    }
+  }
+}

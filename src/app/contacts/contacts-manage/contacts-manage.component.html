@@ -1,0 +1,63 @@
+<div class="manage" *ngIf="visibleContacts; else noSelection">
+  <div class="manage_row">
+    <div class="manage_row_first">
+      <app-input
+        [input]="firstNameInput"
+        (value)="setNewValue($event, 'firstName')"
+      >
+      </app-input>
+    </div>
+    <div class="manage_row_last">
+      <app-input
+        [input]="lastNameInput"
+        (value)="setNewValue($event, 'lastName')"
+      >
+      </app-input>
+    </div>
+  </div>
+  <div class="manage_body">
+    <span>Emails</span>
+    <div
+      class="manage_body_list"
+      *ngFor="let email of contactUpdateData?.emails; let i = index"
+    >
+      <span class="manage_body_list_email">{{ email }}</span>
+      <span class="manage_body_list_delete" (click)="deleteEmail(i)">-</span>
+    </div>
+    <div class="manage_body_row">
+      <div class="manage_body_row_email">
+        <app-input [input]="emailInput" (value)="setNewValue($event, 'email')">
+        </app-input>
+      </div>
+      <div class="manage_body_row_button">
+        <app-button [button]="emailButton" (clickAction)="clickAction($event)">
+        </app-button>
+      </div>
+    </div>
+  </div>
+  <div class="manage_footer">
+    <div
+      class="manage_footer_button"
+      [ngClass]="{
+        manage_footer_button_disabled:
+          !this.contactUpdateData.firstName || !this.contactUpdateData.lastName
+      }"
+    >
+      <app-button [button]="saveButton" (clickAction)="clickAction($event)">
+      </app-button>
+    </div>
+    <div class="manage_footer_button">
+      <app-button [button]="cancelButton" (clickAction)="clickAction($event)">
+      </app-button>
+    </div>
+    <div class="manage_footer_button">
+      <app-button [button]="deleteButton" (clickAction)="clickAction($event)">
+      </app-button>
+    </div>
+  </div>
+</div>
+<ng-template #noSelection>
+  <p class="no-selection">
+    Please select a contact on the left to see more details or add a new one.
+  </p>
+</ng-template>
