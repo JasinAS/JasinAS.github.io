@@ -184,9 +184,11 @@ export class ContactsManageComponent implements OnInit, OnDestroy {
       (c) => c.id === this.contactUpdateData.id
     );
     const index = this.contactArray?.indexOf(selecedContact);
-    this.contactArray.splice(index, 1);
-    localStorage.setItem('contactArray', JSON.stringify(this.contactArray));
-    this.share.changeContact(this.contactUpdateData);
+    if (index !== -1) {
+      this.contactArray.splice(index, 1);
+      localStorage.setItem('contactArray', JSON.stringify(this.contactArray));
+      this.share.changeContact(this.contactUpdateData);
+    }
     this.visibleContacts = false;
     this.contactUpdateData = {
       firstName: '',
