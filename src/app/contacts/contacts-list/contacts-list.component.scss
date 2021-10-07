@@ -22,6 +22,12 @@
       align-items: center;
       font-weight: 600;
       cursor: pointer;
+      border: 2px solid $blue;
+      transition: $transition;
+      &:hover {
+        background: $white;
+        color: $blue;
+      }
     }
   }
   &_search {

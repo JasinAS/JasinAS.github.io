@@ -4,11 +4,13 @@ import { Button } from 'src/app/models/button';
 import { Contact } from 'src/app/models/contact';
 import { InputModel } from 'src/app/models/inputmodel';
 import { ShareService } from 'src/app/services/share.service';
+import { slideIn } from 'src/app/helpers/animations/base-animations';
 
 @Component({
   selector: 'app-contacts-manage',
   templateUrl: './contacts-manage.component.html',
   styleUrls: ['./contacts-manage.component.scss'],
+  animations: [slideIn],
 })
 export class ContactsManageComponent implements OnInit, OnDestroy {
   visibleContacts = false;
